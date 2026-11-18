@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creator Studio</title>
+<title>Creator Studio - Wajid Khan</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#eef2ff;padding-bottom:80px}
@@ -17,23 +17,27 @@ body{background:#eef2ff;padding-bottom:80px}
 .stat b{font-size:20px}
 .stat p{font-size:12px;color:gray}
 .btns{display:flex;gap:10px;padding:0 15px}
-.btns button{flex:1;padding:12px;border:none;border-radius:12px;color:white;font-weight:bold;font-size:15px}
+.btns button{flex:1;padding:12px;border:none;border-radius:12px;color:white;font-weight:bold;font-size:14px}
 .blue{background:#2563eb}.red{background:#ef4444}.green{background:#22c55e}
 .card{background:white;margin:15px;border-radius:18px;padding:15px}
-.card h2{margin-bottom:10px}
-.row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
+.card h2{margin-bottom:10px;font-size:18px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee;gap:8px}
 .row:last-child{border:none}
-.row button{background:#eef2ff;color:#2563eb;border:none;padding:8px 14px;border-radius:20px;font-weight:bold}
-.nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #eee}
-.nav div{text-align:center;font-size:13px;color:gray}
+.row button{background:#eef2ff;color:#2563eb;border:none;padding:8px 14px;border-radius:20px;font-weight:bold;white-space:nowrap}
+.nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #eee;z-index:50}
+.nav div{text-align:center;font-size:13px;color:gray;cursor:pointer}
 .nav .active{color:#2563eb;font-weight:bold}
 .page{display:none;padding:15px}
 .page.active{display:block}
-input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
+input,textarea,select{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px;font-size:15px}
 .big-btn{width:100%;padding:13px;background:#2563eb;color:white;border:none;border-radius:10px;font-weight:bold;font-size:16px;margin-top:10px}
+.gray-btn{background:#eee !important;color:black !important}
 #loginPage{position:fixed;top:0;left:0;right:0;bottom:0;background:#2563eb;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;color:white;text-align:center}
-.login-box{background:white;width:100%;max-width:380px;padding:20px;border-radius:20px;color:black}
+.login-box{background:white;width:100%;max-width:380px;padding:20px;border-radius:20px;color:black;margin-top:15px}
 .fb-btn{background:#1877F2;color:white;width:100%;padding:13px;border:none;border-radius:10px;font-weight:bold;font-size:16px;margin-top:10px}
+.success{color:green;font-weight:bold;margin-top:10px}
+.live-box{background:black;color:white;padding:30px 10px;text-align:center;border-radius:15px;margin:10px 0}
+.post-item{background:#f8fafc;padding:12px;border-radius:12px;margin-top:10px}
 </style>
 </head>
 <body>
@@ -50,75 +54,7 @@ input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border
   </div>
 </div>
 
-<!-- HOME -->
 <div id="homePage">
   <div class="top">
     <h1>👋 Salam, <span id="displayName">Wajid</span>!</h1>
-    <p>Creator Studio - Earn, Create, Grow</p>
-    <div class="profile-card">
-      <img src="https://i.pravatar.cc/150?img=12">
-      <div><b id="profileName" style="font-size:20px">Wajid Khan</b><br><span>@wajid5641khan • Verified Creator</span></div>
-      <div class="badge">⭐<br>4.9</div>
-    </div>
-  </div>
-  <div class="stats">
-    <div class="stat"><b>$1,248</b><p>Total Earnings</p></div>
-    <div class="stat"><b>24.3K</b><p>Views</p></div>
-    <div class="stat"><b>5.8K</b><p>Followers</p></div>
-  </div>
-  <div class="btns">
-    <button class="blue" onclick="showPage('postPage')">+ Create Post</button>
-    <button class="red" onclick="showPage('livePage')">🔴 Go Live</button>
-    <button class="green" onclick="showPage('marketPage')">🛍️ Sell</button>
-  </div>
-  <div class="card">
-    <h2>🤖 AI Money Tools</h2>
-    <div class="row"><span>✍️ AI Caption Generator</span><button onclick="document.getElementById('captionResult').innerText='Best Caption: Mera Naya Vlog Dekho! 🔥 #viral #pakistan'">Generate</button></div>
-    <p id="captionResult" style="color:#2563eb;font-weight:bold"></p>
-    <div class="row"><span>📅 Auto Post Scheduler</span><button onclick="showPage('postPage')">Schedule</button></div>
-    <div class="row"><span>#️⃣ Trending Hashtags</span><button onclick="document.getElementById('captionResult').innerText='#viral #trending #pakistan #wajidkhan'">Get Tags</button></div>
-    <div class="row"><span>💼 Brand Deals</span><button onclick="showPage('brandPage')">View</button></div>
-  </div>
-  <div class="card">
-    <h2>💰 Withdraw Money</h2>
-    <div class="row"><span>JazzCash / Easypaisa</span><button onclick="showPage('withdrawPage')">Withdraw</button></div>
-  </div>
-</div>
-
-<!-- POST PAGE -->
-<div id="postPage" class="page">
-  <div class="card"><h2>✍️ Create Post</h2><textarea placeholder="Aaj kya post karna hai? Likho..."></textarea><input type="file"><button class="big-btn" onclick="showPage('homePage');document.getElementById('postDone').innerText='✅ Post Ho Gayi!';showPage('homePage')">Post Karo</button><button class="big-btn" style="background:#eee;color:black" onclick="showHome()">Back</button><p id="postDone" style="color:green;font-weight:bold;margin-top:10px"></p></div>
-</div>
-<div id="livePage" class="page"><div class="card"><h2>🔴 Go Live</h2><p>Aap Live Ho! Sab aapko dekh rahe hain.</p><div style="background:black;color:white;padding:40px;text-align:center;border-radius:15px;margin:10px 0">📹 LIVE - 128 log dekh rahe hain<br>❤️ 340 Likes • 🎁 120 Coins</div><button class="big-btn" style="background:#ef4444" onclick="showHome()">Live Band Karo</button></div></div>
-<div id="marketPage" class="page"><div class="card"><h2>🛍️ Sell - Marketplace</h2><input placeholder="Cheez ka naam likho"><input placeholder="Price likho - Rs."><button class="big-btn" style="background:#22c55e" onclick="document.getElementById('marketDone').innerText='✅ Aapki Cheez Market me Lag Gayi!'">Sell Karo</button><p id="marketDone" style="color:green;font-weight:bold;margin-top:10px"></p><button class="big-btn" style="background:#eee;color:black" onclick="showHome()">Back</button></div></div>
-<div id="brandPage" class="page"><div class="card"><h2>💼 Brand Deals</h2><p>1. Daraz - Rs. 5000 ka Deal</p><p>2. Jazz - Rs. 8000 ka Deal</p><button class="big-btn" onclick="showHome()">Back</button></div></div>
-<div id="withdrawPage" class="page"><div class="card"><h2>💰 Withdraw</h2><input placeholder="JazzCash / Easypaisa Number"><input placeholder="Kitne Paise? Rs."><button class="big-btn" onclick="document.getElementById('wDone').innerText='✅ Withdraw Request Bhej Di Gayi! 24 Ghante me Paise Aa Jayenge'">Withdraw Karo</button><p id="wDone" style="color:green;font-weight:bold;margin-top:10px"></p><button class="big-btn" style="background:#eee;color:black" onclick="showHome()">Back</button></div></div>
-
-<div class="nav">
-  <div class="active" onclick="showHome()">🏠<br>Home</div>
-  <div onclick="showPage('postPage')">🎬<br>Content</div>
-  <div onclick="showPage('brandPage')">📊<br>Insights</div>
-  <div onclick="showPage('marketPage')">🛍️<br>Market</div>
-  <div onclick="showHome()">👤<br>Profile</div>
-</div>
-
-<script>
-function doLogin(){
-  let name = document.getElementById('userName').value;
-  if(name){ document.getElementById('displayName').innerText = name; document.getElementById('profileName').innerText = name; }
-  document.getElementById('loginPage').style.display='none';
-}
-function showPage(id){
-  document.getElementById('homePage').style.display='none';
-  let pages = document.querySelectorAll('.page');
-  pages.forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-function showHome(){
-  document.getElementById('homePage').style.display='block';
-  let pages = document.querySelectorAll('.page');
-  pages.forEach(p=>p.classList.remove('active'));
-}
-</script>
-</body>
-</html>
+    <p>Creator Studio -
