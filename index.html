@@ -1,120 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creator Studio</title>
+<title>Creator Studio - Earn, Create, Grow</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f0f4ff;padding-bottom:90px}
-.top{background:#2563eb;color:white;padding:20px;border-radius:0 0 25px 25px}
-.top h2{font-size:22px}
-.top p{opacity:.8;font-size:13px;margin-top:4px}
-.profile{display:flex;align-items:center;gap:12px;margin-top:15px}
-.profile img{width:55px;height:55px;border-radius:50%;border:3px solid white;object-fit:cover}
-.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:15px}
-.card{background:white;padding:15px;border-radius:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.card b{font-size:18px;color:#111}
-.card span{font-size:11px;color:#666;display:block;margin-top:4px}
-.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:0 15px}
-.btn{background:#2563eb;color:white;border:none;padding:14px;border-radius:14px;font-weight:bold;cursor:pointer}
-.btn2{background:#ff3b30}
-.btn3{background:#00c853}
-.section{background:white;margin:15px;padding:15px;border-radius:18px}
-.section h3{margin-bottom:12px}
-.tool{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
-.tool:last-child{border:none}
-.tool button{background:#eef2ff;color:#2563eb;border:none;padding:8px 12px;border-radius:20px;font-weight:bold}
-.video{display:flex;gap:10px;margin-bottom:12px}
-.video img{width:90px;height:60px;border-radius:10px;object-fit:cover}
-.video b{font-size:14px}
-.video span{font-size:12px;color:#666}
-.bar{height:10px;background:#e5e7eb;border-radius:10px;overflow:hidden;margin:8px 0}
-.bar div{height:100%;background:#2563eb;width:70%}
-.nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:12px;border-top:1px solid #eee}
-.nav div{text-align:center;font-size:11px;color:#666}
-.nav div.active{color:#2563eb;font-weight:bold}
-.nav span{font-size:20px;display:block}
-input{width:100%;padding:12px;border:1px solid #ddd;border-radius:12px;margin:8px 0}
+body{background:#eef2ff;padding-bottom:80px}
+.top{background:#2563eb;color:white;padding:25px 20px 30px;border-radius:0 0 25px 25px}
+.top h1{font-size:28px}
+.profile-card{display:flex;align-items:center;gap:12px;margin-top:15px}
+.profile-card img{width:65px;height:65px;border-radius:50%;border:3px solid white;object-fit:cover}
+.badge{background:#facc15;color:black;padding:8px 14px;border-radius:15px;font-weight:bold;margin-left:auto;text-align:center}
+.stats{display:flex;gap:10px;padding:15px}
+.stat{background:white;flex:1;text-align:center;padding:15px 5px;border-radius:15px;box-shadow:0 2px 8px #0001}
+.stat b{font-size:20px}
+.stat p{font-size:12px;color:gray}
+.btns{display:flex;gap:10px;padding:0 15px}
+.btns button{flex:1;padding:12px;border:none;border-radius:12px;color:white;font-weight:bold;font-size:15px}
+.blue{background:#2563eb}.red{background:#ef4444}.green{background:#22c55e}
+.card{background:white;margin:15px;border-radius:18px;padding:15px;box-shadow:0 2px 8px #0001}
+.card h2{margin-bottom:10px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
+.row:last-child{border:none}
+.row button{background:#eef2ff;color:#2563eb;border:none;padding:8px 14px;border-radius:20px;font-weight:bold}
+.nav{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #eee}
+.nav div{text-align:center;font-size:13px;color:gray}
+.nav .active{color:#2563eb;font-weight:bold}
+#loginPage{position:fixed;top:0;left:0;right:0;bottom:0;background:#2563eb;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;color:white;text-align:center}
+#loginPage h1{font-size:32px;margin-bottom:5px}
+#loginPage p{margin-bottom:25px;opacity:.9}
+.login-box{background:white;width:100%;max-width:380px;padding:20px;border-radius:20px;color:black}
+.login-box input{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
+.fb-btn{background:#1877F2;color:white;width:100%;padding:13px;border:none;border-radius:10px;font-weight:bold;font-size:16px;margin-top:10px}
+.google-btn{background:white;color:black;width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-weight:bold;margin-top:10px}
 </style>
 </head>
 <body>
 
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+  <h1>👋 Creator Studio</h1>
+  <p>Earn, Create, Grow - Sab Kuch Ek Jagah</p>
+  <div class="login-box">
+    <h3 style="text-align:center">Welcome Back!</h3>
+    <input type="text" id="userName" placeholder="Apna Naam Likho">
+    <input type="text" placeholder="Phone / Email">
+    <button class="fb-btn" onclick="loginWithFacebook()">f &nbsp; Continue with Facebook</button>
+    <button class="google-btn" onclick="loginSimple()">G &nbsp; Continue with Google</button>
+    <button style="width:100%;padding:12px;background:#2563eb;color:white;border:none;border-radius:10px;margin-top:10px;font-weight:bold" onclick="loginSimple()">Login</button>
+    <p style="font-size:12px;color:gray;text-align:center;margin-top:10px">Login karte hi aapka Dashboard khul jayega</p>
+  </div>
+</div>
+
+<!-- MAIN APP -->
 <div class="top">
-<h2>👋 Salam, Wajid!</h2>
-<p>Creator Studio - Earn, Create, Grow</p>
-<div class="profile">
-<img src="https://i.pravatar.cc/150?img=12">
-<div><b>Wajid Khan</b><br><small>@wajid5641khan • Verified Creator</small></div>
-<div style="margin-left:auto;background:#ffc107;color:black;padding:6px 12px;border-radius:20px;font-weight:bold">⭐ 4.9</div>
-</div>
-</div>
-
-<div class="cards">
-<div class="card"><b>$1,248</b><span>Total Earnings</span></div>
-<div class="card"><b>24.3K</b><span>Views</span></div>
-<div class="card"><b>5.8K</b><span>Followers</span></div>
+  <h1>👋 Salam, <span id="displayName">Wajid</span>!</h1>
+  <p>Creator Studio - Earn, Create, Grow</p>
+  <div class="profile-card">
+    <img src="https://i.pravatar.cc/150?img=12" id="profilePic">
+    <div><b id="profileName" style="font-size:20px">Wajid Khan</b><br><span>@wajid5641khan • Verified Creator</span></div>
+    <div class="badge">⭐<br>4.9</div>
+  </div>
 </div>
 
-<div class="actions">
-<button class="btn" onclick="alert('Create Post Open Ho Raha Hai!')">+ Create Post</button>
-<button class="btn btn2" onclick="alert('Live Start Ho Raha Hai!')">🔴 Go Live</button>
-<button class="btn btn3" onclick="alert('Marketplace Open!')">🛍️ Sell</button>
+<div class="stats">
+  <div class="stat"><b>$1,248</b><p>Total Earnings</p></div>
+  <div class="stat"><b>24.3K</b><p>Views</p></div>
+  <div class="stat"><b>5.8K</b><p>Followers</p></div>
 </div>
 
-<div class="section">
-<h3>🤖 AI Money Tools</h3>
-<div class="tool"><span>✍️ AI Caption Generator</span><button onclick="generateCaption()">Generate</button></div>
-<div class="tool"><span>📅 Auto Post Scheduler</span><button onclick="alert('Post Scheduled!')">Schedule</button></div>
-<div class="tool"><span>#️⃣ Trending Hashtags</span><button onclick="alert('#viral #trending #creatorstudio')">Get Tags</button></div>
-<div class="tool"><span>💼 Brand Deals</span><button onclick="alert('3 New Brand Deals Available!')">View</button></div>
-<div class="tool"><span>🎁 Live Gift Coins</span><button onclick="alert('You got 500 Coins!')">Claim</button></div>
-<div class="tool"><span>👥 Refer & Earn $25</span><button onclick="alert('Your Link Copied!')">Invite</button></div>
+<div class="btns">
+  <button class="blue" onclick="alert('Create Post Open! Apni Photo/Video Yahan Post Karo')">+ Create Post</button>
+  <button class="red" onclick="alert('Aap Live Ho Gaye!')">🔴 Go Live</button>
+  <button class="green" onclick="alert('Marketplace Open! Apni Cheez Becho')">🛍️ Sell</button>
 </div>
 
-<div class="section">
-<h3>🎬 Recent Videos</h3>
-<div class="video"><img src="https://picsum.photos/200/120?random=1"><div><b>How I Earn From Facebook?</b><br><span>12.4K views • $45 Earned</span></div></div>
-<div class="video"><img src="https://picsum.photos/200/120?random=2"><div><b>My First Viral Video Story</b><br><span>8.2K views • $32 Earned</span></div></div>
-<div class="video"><img src="https://picsum.photos/200/120?random=3"><div><b>Creator Studio Full Tour</b><br><span>5.1K views • $21 Earned</span></div></div>
+<div class="card">
+  <h2>🤖 AI Money Tools</h2>
+  <div class="row"><span>✍️ AI Caption Generator</span><button onclick="alert('Best Caption: Mera Naya Vlog Dekho! 🔥 #viral')">Generate</button></div>
+  <div class="row"><span>📅 Auto Post Scheduler</span><button onclick="alert('Post Schedule Ho Gayi!')">Schedule</button></div>
+  <div class="row"><span>#️⃣ Trending Hashtags</span><button onclick="alert('#viral #trending #pakistan #wajidkhan')">Get Tags</button></div>
+  <div class="row"><span>💼 Brand Deals</span><button onclick="alert('2 Naye Brand Deals Aaye Hain!')">View</button></div>
+  <div class="row"><span>🎁 Live Gift Coins</span><button onclick="alert('Aapko 500 Coins Mile!')">Claim</button></div>
 </div>
 
-<div class="section">
-<h3>📊 Weekly Analytics</h3>
-<p>Mon - $120</p><div class="bar"><div style="width:60%"></div></div>
-<p>Tue - $180</p><div class="bar"><div style="width:80%"></div></div>
-<p>Wed - $95</p><div class="bar"><div style="width:45%"></div></div>
-<p>Thu - $210</p><div class="bar"><div style="width:90%"></div></div>
-<p>Fri - $150</p><div class="bar"><div style="width:70%"></div></div>
-</div>
-
-<div class="section">
-<h3>🛍️ Marketplace Sales</h3>
-<div class="video"><img src="https://picsum.photos/200/120?random=10"><div><b>Premium Preset Pack - $9.99</b><br><span>124 Sold • $1,238 Earned</span></div></div>
-<div class="video"><img src="https://picsum.photos/200/120?random=11"><div><b>Video Editing Course - $29</b><br><span>58 Sold • $1,682 Earned</span></div></div>
-</div>
-
-<div class="section">
-<h3>✍️ Try AI Caption</h3>
-<input id="topic" placeholder="Topic likho, jaise: My Village Vlog">
-<button class="btn" style="width:100%" onclick="generateCaption()">Generate Caption</button>
-<p id="result" style="margin-top:10px;background:#f0f4ff;padding:12px;border-radius:10px;display:none"></p>
+<div class="card">
+  <h2>💰 Withdraw Money</h2>
+  <div class="row"><span>JazzCash / Easypaisa</span><button onclick="alert('Withdraw Request Bhej Di Gayi!')">Withdraw</button></div>
+  <div class="row"><span>Bank Transfer</span><button onclick="alert('Bank Details Add Karo')">Add Bank</button></div>
 </div>
 
 <div class="nav">
-<div class="active"><span>🏠</span>Home</div>
-<div><span>🎬</span>Content</div>
-<div><span>📊</span>Insights</div>
-<div><span>🛍️</span>Market</div>
-<div><span>👤</span>Profile</div>
+  <div class="active">🏠<br>Home</div>
+  <div>🎬<br>Content</div>
+  <div>📊<br>Insights</div>
+  <div>🛍️<br>Market</div>
+  <div>👤<br>Profile</div>
 </div>
 
 <script>
-function generateCaption(){
-let t=document.getElementById('topic').value || "My New Video";
-let r=document.getElementById('result');
-r.style.display='block';
-r.innerHTML="🔥 "+t+" | Best Day Ever! ❤️ Follow for more! #viral #trending #creatorstudio #wajidkhan";
+function loginSimple(){
+  let name = document.getElementById('userName').value;
+  if(name){ document.getElementById('displayName').innerText = name; document.getElementById('profileName').innerText = name; }
+  document.getElementById('loginPage').style.display='none';
+  alert('Welcome '+ (name || 'Wajid') + '! Login Ho Gaya!');
+}
+function loginWithFacebook(){
+  // Yahan Asli Facebook Login ke liye App ID lagani hai
+  // Abhi ke liye demo login hai jo bilkul asli jaisa lagta hai
+  let name = document.getElementById('userName').value || 'Wajid Khan';
+  document.getElementById('displayName').innerText = name;
+  document.getElementById('profileName').innerText = name;
+  document.getElementById('loginPage').style.display='none';
+  alert('Facebook se Login Ho Gaya! Welcome '+name);
 }
 </script>
 </body>
